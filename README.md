@@ -17,6 +17,28 @@ Through this plugin you are able to:
 You'll have to manually install the plugin via the advanced tab of your plugin settings.
 A Jenkins plugin repo build will be available soon.
 
+### Manual Installation using Eclipse for Windows
+
+- Download and install Java 8 SDK from http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+
+- Install Eclipse IDE for Web developers
+
+- Download and install m2e (Maven) from http://www.eclipse.org/m2e/
+
+- In any File Explorer window, Right click This PC > Properties > Advanced System Settings > Environment Variables > System variables > New and add "JAVA_HOME" with path to JDK, default should lok like `C:\Program Files\Java\jdk1.8.0_181` > OK > OK > OK
+
+- In Eclipse, Window > Prefs > Java > JREs > Edit > change to the `C:\Program Files\Java\jdk1.8.0_181`
+
+- Create new web project > name it > provide the url of the git
+
+- Right-click pom.xml in the project > Run as... > Maven build.... "package"
+
+- It should build to success in a project subfolder called `target`. If not, google the error. File should be `jenkins-discord.hpi`
+
+- In Jenkins, Manage Jenkins > Manage Plugins > Advanced > Upload Plugin > Choose file and browse to the hpi file, then click Upload.
+
+- In a Project under Post-build Actions select Discord Notifier and insert webhook URL from your Discord.
+
 ## Usage
 
 This plugin uses the post-build feature to execute a request.
